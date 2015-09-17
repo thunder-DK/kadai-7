@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+#container{
+    width: 960px;
+    margin: 0 auto;
+}
+
+#inputform{
+    width: 960px;
+    float: left;
+    margin: 30px;
+}
+
+#s_inputbutton{
+    float: left;
+    margin: 40px;
+    text-align: center;
+}
+    
+.company-name{
+    float: left;
+    text-align: center;
+}
+
+.footerlogo{
+    text-align: center;
+}
+
+.register li{
+    float: right;
+    margin: 0 20px 5px 20px;
+    list-style-type: none;
+}
+
+.key-visual img{
+    padding-top: 15px;
+    min-height: 50%;
+    min-width: 1024px;
+    
+    width:100%;
+    height: 500px;
+    
+    top: 0;
+    left: 0;
+}
+
+.kagu-image{
+    margin: 0 auto;
+    text-align: center;
+    width: 1080px;
+}
+
+h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.kagu-image li{
+    <!--
+    float: left;
+    -->
+    list-style-type: none;
+    display: inline;
+}
+
+.kagu-image li img{
+    width: 240px;
+    height: 180px;
+    margin: 5px;
+}
+
+.kagu-image li:hover{
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    content:Click!;
+}
+
+.kagu-detail{
+    margin: auto;
+    float: left;
+    zoom: 150%;
+}
+
+.spec-info{
+    width: 250px;
+    float: right;
+    margin: auto;
+}
+
+.hyouji-area{
+    width: 960px;
+    margin: 0 auto;
+}
+
+.purchase-btn{
+    float: right;
+}
+
+.kagu-purchase{
+    float: left;
+    margin: auto;
+    padding-right: 30px;
+}
+
+.pur-label{
+    float: left;
+}
+
+.text-count1{
+    float: right;
+    padding-bottom: 50px;
+}
+
+.form1{
+    float: left;
+}
+
+.j-button{
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 50%;
+}
