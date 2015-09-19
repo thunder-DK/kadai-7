@@ -2,6 +2,12 @@
 <html lang="ja">
     <head>
         <link rel="stylesheet" href="../css/default.css">
+        <style>
+            #input_table{
+                margin-top: 100px;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <div id="container">
@@ -25,7 +31,7 @@
             //var_dump($result);
 
             if($results == NULL){
-                echo '<table id="news_table">';
+                echo '<table id="input_table">';
                     print '<tr>';
                         print '<td>' ."検索されたワードはニュースに存在しませんでした。<br>
                                        再度検索ワードを入力しなおして下さい。".
