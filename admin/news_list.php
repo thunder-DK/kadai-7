@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>管理者用–ニュース登録内容確認</title>
+        <link rel="stylesheet" href="../css/default.css">
     </head>
     
     <body>
         <div id="container">
-            <div class="company-name" align="center" style="border-style:solid; border-width: 3px; padding:2px; width:400px"><a href="../index.php">furniture Company ECショップ</a></div>
+            <div class="company-name1" align="center" style="border-style:solid; border-width: 3px; padding:2px; width:400px"><a href="../index.php">furniture Company ECショップ</a></div>
             
             <?php
                 $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
@@ -16,7 +17,7 @@
                 $stmt->execute();
                 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                echo '<table border="1">';
+                echo '<table border="1" id="news_table">';
                     echo '<tr>';
                         print '<td>' ."ID". '</td>';
                         print '<td>' ."newsタイトル". '</td>';
@@ -70,8 +71,13 @@
             ?>
 
             <form action="input.php" method="post">
-                <input type="submit" value="登録" name="submit-n">
+                <input type="image" src="../images/btn-input.png" value="登録" name="submit-i" id="submit-i">
             </form>
+            <form action="search.php" method="post">
+                <input type="image" src="../images/btn-search.png" value="検索" name="submit-s" id="submit-s">
+            </form>
+            
         </div>
+        
     </body>
 </html>

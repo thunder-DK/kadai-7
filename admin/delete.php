@@ -5,7 +5,7 @@
     $sql = "SELECT * FROM news WHERE news_id = :newsid";
     
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':newsid', $get_newsid, PDO::PARAM_STR);
+    $stmt->bindValue(':newsid', $get_newsid, PDO::PARAM_INT);
     $bresult = $stmt->execute();
     
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,41 +37,50 @@
             </div>
        
             <div id="inputform">
-                <h2>ニュースを更新してください</h2>
-                <form action="update_execute.php" method="post">
+                <h2>この内容で本当に削除しますか？ </h2>
+                <form action="delete_execute.php" method="post">
                     <fieldset id="news_inputfield">
                         <table border="0" id="input_table">
                             <tr height="50">                        
                                 <td>ニュースタイトル：</td>
-                                <td><input type="text" name="n_title" size="100" value="<?php print $news_title ?>" required></td>
+                                <td><input type="text" size="100" value="<?php print $news_title ?>" disabled id="dltcolor">
+                                </td>
                             </tr>
                             <tr height="50">
                                 <td>ニュース詳細：</td>
-                                <td><textarea name="n_detail" rows="4" cols="100" required><?php print $news_detail ?></textarea></td>
+                                <td><textarea rows="4" cols="100" disabled id="dltcolor"><?php print $news_detail ?></textarea>
+                                </td>
                             </tr>
                             <tr height="50">
                                 <td>著者名（更新者）：</td>
-                                <td><input type="text" name="n_author" size="50" value="<?php print $news_author ?>" required></td>
+                                <td><input type="text" size="50" value="<?php print $news_author ?>" disabled id="dltcolor">
+                                </td>
                             </tr>
                             <tr height="50">
                                 <td>表示設定</td>
                                 <?php 
                                     if($news_showfl == 1){
-                                        print '<td><input type="radio" name="show_flg" value="1" checked required>表示
-                                                   <input type="radio" name="show_flg" value="0" required>非表示
+                                        print '<td><input type="radio" value="1" checked disable>表示
+                                                   <input type="radio" value="0" disabled>非表示
                                                </td>';
                                     }
                                     else{
-                                        print '<td><input type="radio" name="show_flg" value="1" required>表示
-                                                   <input type="radio" name="show_flg" value="0" checked required>非表示
+                                        print '<td><input type="radio" value="1" disabled>表示
+                                                   <input type="radio" value="0" checked disabled>非表示
                                                </td>';
                                     }
                                 ?>
                             </tr>
                         </table>
                     </fieldset>
+
                     <input type="hidden" name="news_id" value="<?php print $get_newsid ?>">
-                    <input type="image" src="../images/btn-news_update.png" name="s_inputbutton" id="submit-input" value="ニュースを更新する">
+                    <input type="hidden" name="n_title" value="<?php print $news_title ?>">
+                    <input type="hidden" name="n_detail" value="<?php print $news_detail ?>">
+                    <input type="hidden" name="n_author" value="<?php print $news_author ?>">
+                    <input type="hidden" name="show_flg" value="<?php print $news_showfl ?>">
+                    
+                    <input type="image" src="../images/btn-news_delete.png" name="s_inputbutton" id="submit-input" value="ニュースを削除する">
                 </form>
                 <form action="news_list.php" method="get">
                     <input type="image" src="../images/btn-cancel.png" id="submit-cancel" value="元に戻る">
