@@ -22,26 +22,40 @@
                         print '<td>' ."newsタイトル". '</td>';
                         print '<td>' ."news詳細". '</td>';
                         print '<td>' ."著者". '</td>';
+                        print '<td>' ."表示". '</td>';
                         print '<td>' ."登録日". '</td>';
                         print '<td>' ."更新日". '</td>';
+                        print '<td>' ."更新". '</td>';
+                        print '<td>' ."削除". '</td>';
                     echo '</tr>';
 
                 foreach($results as $row) {
                     echo '<tr>';
                         $news_id = $row["news_id"];
-                        $news_date = substr($row["create_date"],0,10);
-                        $news_update = substr($row["update_date"],0,10);
+                        $news_date = $row["create_date"];
+                        $news_update = $row["update_date"];
                         $news_title = $row["news_title"];
                         $news_detail = $row["news_detail"];
                         $news_author = $row["author"];
+                        $news_showfl = $row["show_fl"];
+                    
+                        if($news_showfl == 1){
+                            $show_fl = "○";
+                        }
+                        else{
+                            $show_fl = "×";
+                        }
 
                         print '<td>' .$news_id. '</td>';
                         print '<td>' .$news_title. '</td>';
                         print '<td>' .$news_detail. '</td>';
                         print '<td>' .$news_author. '</td>';
+                        print '<td>' .$show_fl. '</td>';
                         print '<td>' .$news_date. '</td>';
                         print '<td>' .$news_update. '</td>';
-                        print '<td><button id="update-btn" onclick="location.href=update_execute.php?id='.$news_id.'">' ."更新". '</button><td><button id="delete-btn" onclick="location.href=delete_execute.php?id=' .$news_id. '">' ."削除". '</button></td>';
+                        print '<td><form method="post" action="update.php?id='.$news_id.'"><input type="submit" value="更新"></form></td>'; 
+                        print '<td><form method="post" action="delete.php?id='.$news_id.'"><input type="submit" value="削除"></form></td>';            
+                        //print '<td><button id="update-btn" onclick="location.href=update_execute.php?id='.$news_id.'">' ."更新". '</button><td><button id="delete-btn" onclick="location.href=delete_execute.php?id=' .$news_id. '">' ."削除". '</button></td>';
                     
                     // print "<a href=\"news.php?id=$news_id\">$cc_newstitle</a>";
                     // print "       ";

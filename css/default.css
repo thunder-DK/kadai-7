@@ -22,10 +22,20 @@
     text-align: center;
 }
 
-.footerlogo{
+#footerlogo{
     text-align: center;
 }
 
+#news_show{
+    width: 350px;
+    margin: 0 auto;
+}
+
+#login_g{
+    width: 600px;
+    margin: 0 auto;
+}
+    
 .register li{
     float: right;
     margin: 0 20px 5px 20px;

@@ -6,17 +6,6 @@
         <meta data="keywords" contents="">
         <title>おしゃれな家具を販売しています</title>
         <link rel="stylesheet" href="css/default.css" type="text/css" alt="">
-
-        <!--
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(window).on("load",function(){
-                    localStorage.removeItem("purchase-count");
-                });
-            });
-        </script>
-        -->
     </head>
     
     <body>
@@ -49,6 +38,30 @@
             ?>
         </ul>
         
+        <h3 align="center">最新ニュース</h3>
+        
+        <table border="0" id="news_show">
+        <?php
+            $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
+            $sql = "SELECT * FROM news WHERE show_fl=1 ORDER BY update_date DESC LIMIT 5";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach($results as $row) {
+                $news_title = $row["news_title"];
+                $news_detail = $row["news_detail"];
+                $news_update = substr($row["update_date"],0,10);
+                
+                
+                echo "<tr>";
+                    echo "<td width='120'>" .$news_update. "</td>";
+                    echo "<td>" .$news_title. "</td>";
+                    // echo "<td>" .$news_detail. "</td>";
+                echo "</tr>";
+            }
+        ?>
+        </table>
+
         <footer id="footerlogo">
             <p>copyright 2015 kuroda company</p>
         </footer>
