@@ -15,9 +15,9 @@
     if($result == NULL){
         echo '<table id="input_table">';
             print '<tr>';
-            print '<td>' ."登録に失敗しました。<br>
-                        　 再度入力しなおして下さい。".
-                　'</td>';
+                print '<td>' ."登録に失敗しました。<br>
+                              再度入力しなおして下さい。".
+                      '</td>';
             print '</tr>';
 
             print '<tr>';

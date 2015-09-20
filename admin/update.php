@@ -12,7 +12,7 @@
 
     if($results == NULL){
             print "値の取得に失敗しました。<br>";
-            print '<a href="news_lisst.php">元に戻る</a>';
+            print '<a href="news_list.php">元に戻る</a>';
     }
 
     else{
