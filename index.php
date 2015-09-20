@@ -12,7 +12,7 @@
         <div class="company-name" style="border-style:solid; border-width: 3px; padding:2px; width:400px">furniture Company ECショップ</div>
         
         <ul class="register">
-            <li><a href="product_detail.php">カート</a></li>
+            <li><a href="admin/logout.php">ログアウト</a></li>
             <li><a href="admin/login.php">ログイン</a></li>
             <li><a href="">会員登録</a></li>
         </ul>

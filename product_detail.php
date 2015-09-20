@@ -5,8 +5,7 @@
         <meta data="description" content="">
         <meta data="keywords" content="">
         <link rel="stylesheet" style="css/text" href="css/default.css">
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <title>素敵な家具を売っています ｜ U字Chair</title>
+        <title>素敵な家具を売っています</title>
         <!--
         <script type="text/javascript">
             $(document).ready(function(){
@@ -47,8 +46,10 @@
             $product_gazo = "<div class='kagu-detail'><img src=" .$gazo_path. "></div>";
             print $product_gazo;
 
+            /*
             session_start();
             $_SESSION["id"] = $get_id;
+            */
 
         ?>
 
@@ -63,6 +64,7 @@
                     <input type="text" id="text-count" name="conv-count" value="1" size="5" maxlength="4">
                 </dd>
                 <dt>　</dt><dd></dd>
+                    <input type="hidden" name="get_id" value=<?php print $get_id ?>>
                 <dt>
                     <input type="submit" value="購入する">
                 </dt>

@@ -46,8 +46,20 @@
 
                     else{
                         foreach($results as $row) {
-                            //print '<a href="news_list.php"></a>';
-                            header("Location: news_list.php");
+                            $admin_fl = $row["admin_flg"];
+                            
+                            if($admin_fl == "1"){
+                                header("Location: news_list.php");
+                            }
+                            elseif($admin_fl == "0"){
+                                session_start();
+                                
+                                $_SESSION["loginid"] = $login_id;
+                                $_SESSION["loginpw"] = $password;
+                                $_SESSION["loginfl"] = $admin_fl;
+                                
+                                header("Location: ../index.php");
+                            }
 
                         }
                     }

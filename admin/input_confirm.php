@@ -1,36 +1,8 @@
 <?php
-    $get_newsid = $_GET["id"];
-
-    $pdo = new PDO("mysql:host=localhost;dbname=cs_academy;charset=utf8", "root", "");
-    $sql = "SELECT * FROM news WHERE news_id = :newsid";
-    
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':newsid', $get_newsid, PDO::PARAM_INT);
-    $bresult = $stmt->execute();
-    
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    if($results == NULL){
-        echo '<table id="input_table">';
-            print '<tr>';
-                print '<td>' ."値の取得に失敗しました。<bf>".
-                      '</td>';
-            print '</tr>';
-
-            print '<tr>';
-                print '<td>' .'<a href="news_list.php">元に戻る</a></td>';
-            print '</tr>';
-        echo '</table>';        
-    }
-
-    else{
-        foreach($results as $row) {
-            $news_title = $row["news_title"];
-            $news_detail = $row["news_detail"];
-            $news_author = $row["author"];
-            $news_showfl = $row["show_fl"];
-        }
-    }
+    $news_title = $_POST["n_title"];
+    $news_detail = $_POST["n_detail"];
+    $news_author = $_POST["n_author"];
+    $news_showfl = $_POST["show_flg"];
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +17,8 @@
             </div>
        
             <div id="inputform">
-                <h2>この内容で本当に削除しますか？ </h2>
-                <form action="delete_execute.php" method="post">
+                <h2>この内容で本当に登録しますか？ </h2>
+                <form action="input_execute.php" method="post">
                     <fieldset id="news_inputfield">
                         <table border="0" id="input_table">
                             <tr height="50">                        
@@ -82,15 +54,14 @@
                         </table>
                     </fieldset>
 
-                    <input type="hidden" name="news_id" value="<?php print $get_newsid ?>">
                     <input type="hidden" name="n_title" value="<?php print $news_title ?>">
                     <input type="hidden" name="n_detail" value="<?php print $news_detail ?>">
                     <input type="hidden" name="n_author" value="<?php print $news_author ?>">
                     <input type="hidden" name="show_flg" value="<?php print $news_showfl ?>">
                     
-                    <input type="image" src="../images/btn-news_delete.png" name="s_inputbutton" id="submit-input" value="ニュースを削除する">
+                    <input type="image" src="../images/btn-input.png" name="s_inputbutton" id="submit-input" value="ニュースを削除する">
                 </form>
-                <form action="news_list.php" method="get">
+                <form action="input.php" method="get">
                     <input type="image" src="../images/btn-cancel.png" id="submit-cancel" value="元に戻る">
                 </form>
             </div>

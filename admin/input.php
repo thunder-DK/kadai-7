@@ -12,10 +12,10 @@
             <div class="company-name1" align="center" style="border-style:solid; border-width: 3px; padding:2px; width:400px"><a href="../index.php">furniture Company ECショップ</a>
             </div>
 
-            
             <div id="inputform">
                 <h2>ニュースを登録してください</h2>
-                <form action="input_execute.php" method="post">
+                <form action="input_confirm.php" method="post">
+                <!-- <form action="input_execute.php" method="post"> -->
                     <fieldset id="news_inputfield">
                         <table border="0" id="input_table">
                             <tr height="50">                        
@@ -38,7 +38,7 @@
                             </tr>
                         </table>
                     </fieldset>
-                    <input type="image" src="../images/btn-news_input.png" name="s_inputbutton" id="submit-input" value="ニュースを登録する">
+                    <input type="image" src="../images/btn-news_input.png" id="submit-input" value="ニュースを登録する">
                 </form>
                 <form action="news_list.php" method="get">
                     <input type="image" src="../images/btn-cancel.png" id="submit-cancel" value="元に戻る">
